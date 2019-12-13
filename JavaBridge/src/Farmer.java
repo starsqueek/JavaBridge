@@ -71,7 +71,6 @@ class BridgeFarmer implements Runnable
 
     public static void main(String [] args) {
         Thread farmn[] = new Thread[NB_FARMERS];
-        System.out.println("Start");
 
         for (int i = 0 ; i < NB_FARMERS ; i++) {
             farmn[i] = new Thread(new BridgeFarmer(i));
