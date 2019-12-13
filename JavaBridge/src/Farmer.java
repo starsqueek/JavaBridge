@@ -53,7 +53,6 @@ class BridgeFarmer implements Runnable
         }
         else{
             System.out.println(this + " Bridge is currently in use");
-            //
         }
     }
 
