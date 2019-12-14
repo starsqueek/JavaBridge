@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
-
 class BridgeFarmer implements Runnable
 {
     private static final int NB_FARMERS = 2;
@@ -12,7 +11,7 @@ class BridgeFarmer implements Runnable
 
     public BridgeFarmer(int id) {
         this.id = id;
-        bridge[0] = new Semaphore(1);
+        bridge[0] = new Semaphore(1,true);
         if(this.id == 1){
             this.village = "North";
         }
@@ -25,7 +24,7 @@ class BridgeFarmer implements Runnable
         try {
             Thread.sleep(rand.nextInt(10) * 1000);
         } catch (InterruptedException e) {
-            System.err.println("One philosopher thread died :(");
+            System.err.println("One Farmer thread died :(");
             System.exit(1);
         };
     }
@@ -52,7 +51,7 @@ class BridgeFarmer implements Runnable
             System.out.println(this + " is currenntly in the "+ this.village +" village.");
         }
         else{
-            System.out.println(this + " Bridge is currently in use");
+            System.out.println(this + " Bridge is currently in use or another farmer is waiting to use the bridge");
         }
     }
 
